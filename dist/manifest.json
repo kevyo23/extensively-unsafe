@@ -1,0 +1,37 @@
+{
+    "name": "Extensively Unsafe",
+    "version": "0.0.1",
+    "manifest_version": 1,
+    "description": "A browser extension with the intention of providing greater visibility for install extensions... it has a few surprises and holes though so install with care..",
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "browser_action": {
+      "default_title": "EXTUNS",
+      "default_popup": "popup.html"
+    },
+    "default_locale": "en",
+    "background": {
+      "scripts": [
+        "js/background.js"
+      ],
+      "persistent": true
+    },
+    "permissions": [
+      "https://*/*"
+    ],
+    "content_security_policy": "default-src 'self' ajax.googleapis.com style-src 'self' 'unsafe-inline';",
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": [
+          "js/content.js"
+        ]
+      }
+    ]
+  }
+  
